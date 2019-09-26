@@ -119,13 +119,14 @@ export default class MainComponent extends Component {
    
     // Function replaces the old todo list with anew todo list after updating completed state
     completeOrNot(key, value) {
-        console.log(key);
+        console.log("key:", key);
+        console.log("value: ", value);
         key = key +  (this.state.pageActive-1)*this.state.noOfItems;
-        console.log(key);
-
+         console.log(key);
         const updatedTodo = this.state.todos.map( (todo, index) => {
             if(index === key) {
-                return { text: todo.text, 
+                return { 
+                    text: todo.text, 
                     date: todo.date, 
                     completed: value
                 }
@@ -165,10 +166,6 @@ export default class MainComponent extends Component {
     }
 
     render() {
-        // const { active, noOfList } = this.state;
-        // this.setState({
-        //     displayTodo: this.state.todos.filter( (todo, index) => index >= noOfList*(active-1) && index <= (active*noOfList)-1)
-        // });
 
         const startPoint = this.state.noOfItems*(this.state.pageActive -1);
         const endPoint = (this.state.pageActive * this.state.noOfItems) -1 ;

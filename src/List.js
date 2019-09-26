@@ -4,12 +4,13 @@ import './list.css'
 export default function List(props) {
 
    var  {text, date, completed} = props.todo;
+   console.log(props.index, completed);
     return (
         <div className="alert alert-dark">
             <input 
                 type= "checkbox" 
-                defaultChecked= {completed}  
-                onClick={(event) =>  props.completeOrNot(props.index , event.target.checked)}
+                checked= {completed}  
+                onChange={(event) =>  props.completeOrNot(props.index, event.target.checked)}
             />
             <p className={completed ? "strikethrough" : null}>{text}</p>
             <span> {date} </span>

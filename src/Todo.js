@@ -26,7 +26,9 @@ export default class Todo extends Component {
                     todo = {todo}
                     onDelete = {() => this.props.onDelete(index)}
                     onUpdate = { () => this.props.updateTextAndKey(index)}
-                    completeOrNot = {(key, value) => this.props.completeOrNot(key, value)}
+                    completeOrNot = {(key, value) => {
+                        console.log("completed ", value, " index:", key);
+                        return this.props.completeOrNot(key, value)}}
                 />
         }
             );
